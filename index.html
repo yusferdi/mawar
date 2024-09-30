@@ -6,13 +6,161 @@
   <link href="/css/mawar/styles.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <title>Mawar Kerokan</title>
-  <style></style>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script>
+    var cont = 0; // Initialize the counter
+
+function loopSlider() { 
+    var xx = setInterval(function() {
+        switch (cont) {
+            case 0:
+                $("#slider-1").fadeOut(400);
+                $("#slider-2").delay(400).fadeIn(400);
+                $("#sButton1").removeClass("bg-white");
+                $("#sButton2").addClass("bg-white");
+                $("#angka").text(2);
+                cont = 1;
+                break;
+            case 1:
+                $("#slider-2").fadeOut(400);
+                $("#slider-3").delay(400).fadeIn(400);
+                $("#sButton2").removeClass("bg-white");
+                $("#sButton3").addClass("bg-white");
+                $("#angka").text(3);
+                cont = 2;
+                break;
+            case 2:
+                $("#slider-3").fadeOut(400);
+                $("#slider-4").delay(400).fadeIn(400);
+                $("#sButton3").removeClass("bg-white");
+                $("#sButton4").addClass("bg-white");
+                $("#angka").text(4);
+                cont = 3;
+                break;
+            case 3:
+                $("#slider-4").fadeOut(400);
+                $("#slider-5").delay(400).fadeIn(400);
+                $("#sButton4").removeClass("bg-white");
+                $("#sButton5").addClass("bg-white");
+                $("#angka").text(5);
+                cont = 4;
+                break;
+            case 4:
+                $("#slider-5").fadeOut(400);
+                $("#slider-1").delay(400).fadeIn(400);
+                $("#sButton5").removeClass("bg-white");
+                $("#sButton1").addClass("bg-white");
+                $("#angka").text(1);
+                cont = 0;
+                break;
+        }
+    }, 8000); // Loop every 8 seconds
+}
+
+function sliderButton1() { 
+    // Hide all sliders except for slider-1
+    $("#slider-2, #slider-3, #slider-4, #slider-5").fadeOut(400);
+    $("#slider-1").delay(400).fadeIn(400);
+
+    // Remove bg-white from all buttons except for sButton1
+    $("#sButton2, #sButton3, #sButton4, #sButton5").removeClass("bg-white");
+    $("#sButton1").addClass("bg-white");
+    $("#angka").text(1);
+
+    // Reset the loop to continue after clicking a button
+    reinitLoop(4000);
+    
+    // Update the slide counter to reflect the first slide
+    cont = 0;
+}
+
+function sliderButton2() { 
+    // Hide all sliders except for slider-1
+    $("#slider-1, #slider-3, #slider-4, #slider-5").fadeOut(400);
+    $("#slider-2").delay(400).fadeIn(400);
+
+    // Remove bg-white from all buttons except for sButton1
+    $("#sButton1, #sButton3, #sButton4, #sButton5").removeClass("bg-white");
+    $("#sButton2").addClass("bg-white");
+    $("#angka").text(2);
+
+    // Reset the loop to continue after clicking a button
+    reinitLoop(4000);
+    
+    // Update the slide counter to reflect the first slide
+    cont = 0;
+}
+
+function sliderButton3() { 
+    // Hide all sliders except for slider-1
+    $("#slider-2, #slider-1, #slider-4, #slider-5").fadeOut(400);
+    $("#slider-3").delay(400).fadeIn(400);
+
+    // Remove bg-white from all buttons except for sButton1
+    $("#sButton2, #sButton1, #sButton4, #sButton5").removeClass("bg-white");
+    $("#sButton3").addClass("bg-white");
+    $("#angka").text(3);
+
+    // Reset the loop to continue after clicking a button
+    reinitLoop(4000);
+    
+    // Update the slide counter to reflect the first slide
+    cont = 0;
+}
+
+function sliderButton4() { 
+    // Hide all sliders except for slider-1
+    $("#slider-2, #slider-3, #slider-1, #slider-5").fadeOut(400);
+    $("#slider-4").delay(400).fadeIn(400);
+
+    // Remove bg-white from all buttons except for sButton1
+    $("#sButton2, #sButton3, #sButton1, #sButton5").removeClass("bg-white");
+    $("#sButton4").addClass("bg-white");
+    $("#angka").text(4);
+
+    // Reset the loop to continue after clicking a button
+    reinitLoop(4000);
+    
+    // Update the slide counter to reflect the first slide
+    cont = 0;
+}
+
+function sliderButton5() { 
+    // Hide all sliders except for slider-1
+    $("#slider-2, #slider-3, #slider-4, #slider-1").fadeOut(400);
+    $("#slider-5").delay(400).fadeIn(400);
+
+    // Remove bg-white from all buttons except for sButton1
+    $("#sButton2, #sButton3, #sButton4, #sButton1").removeClass("bg-white");
+    $("#sButton5").addClass("bg-white");
+    $("#angka").text(5);
+
+    // Reset the loop to continue after clicking a button
+    reinitLoop(4000);
+    
+    // Update the slide counter to reflect the first slide
+    cont = 0;
+}
+
+$(window).ready(function() {
+    // Hide all sliders except slider-1
+    $("#slider-2, #slider-3, #slider-4, #slider-5").hide();
+    
+    // Set the first button as active
+    $("#sButton1").addClass("bg-white");
+    
+    // Start the slider loop
+    loopSlider();
+});
+
+  </script>
+
 </head>
 <body>
-    <header>
-        <nav class="flex flex-wrap items-center justify-between w-full text-lg text-[#582C72] px-8 py-2">
+    <header class="container mx-auto my-4 px-8 py-4">
+        <nav class="flex flex-wrap items-center justify-between text-lg text-[#582C72]">
             <a href="/" class="md:mb-2 lg:mb-2 filter drop-shadow-sm transition transition-transform duration-100 hover:drop-shadow-lg">
-                <button class="bg-[#E0D1E8] px-12 uppercase btn btn-wide">Logo</button>
+                <button class="bg-[#E0D1E8] px-12 uppercase btn btn-wide">Mawar Spa</button>
             </a>
             <div class="flex flex-row gap-4 items-center">
                 <div class="text-xs">
@@ -38,32 +186,32 @@
             </div>
         </nav>
     </header>
-    <hero>
-        <div class="flex flex-wrap-reverse items-center justify-between text-[#582C72] px-8 py-2">
-            <div class="w-3/4 py-16">
+    <div class="container mx-auto my-8 px-8 py-4 h-lg w-full">
+        <div class="flex flex-wrap-reverse items-center justify-between text-[#582C72]">
+            <div class="w-2/3">
                 <button class="border-2 text-[#582C72] max-w-fit rounded-full px-4 py-2 text-sm animate-type overflow-hidden whitespace-nowrap border border-transparent animate-borderGrow" style="border-color: #582C72;">Massage panggilan online jakarta</button>                  
                 <br>
                 <h1 class="text-6xl font-medium py-4">Hilangkan stres, <br> rasakan rileksnya <br> tubuh dan pikiran.</h1>
                 <p class="max-w-xl">Kami adalah penyedia pijat panggilan Online 24 jam di Jakarta. Kami menawarkan berbagai layanan pijat seperti massage tradisional, massage Body Scrub, massage reflexy, massage kerokan, dll.</p>
                 <button class="my-4 bg-[#582C72] text-white rounded-full px-4 py-2 text-sm uppercase font-medium items-center">Hubungi Sekarang <i class="fa-solid fa-circle-arrow-up text-xl rotate-45"></i></button>
             </div>
-            <div class="w-1/4 py-16">
+            <div class="w-1/3 items-end pr-12">
                 <div class="stack">
                     <img
-                      src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-                      class="rounded animate-fade-rotate-1" />
+                      src="./images/mawar/hero-1.jpeg"
+                      class="rounded animate-fade-rotate-1 h-full w-auto" />
                     <img
-                      src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-                      class="rounded animate-fade-rotate-2" />
+                      src="./images/mawar/bg-2.png"
+                      class="rounded animate-fade-rotate-2 filter hue-rotate-200" />
                     <img
-                      src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+                      src="./images/mawar/bg-3.png"
                       class="rounded animate-fade-rotate-3" />
                 </div>
             </div>
         </div>
-    </hero>
+    </div>
     <banner>
-        <div class="relative items-center flex overflow-x-hidden bg-[#582C72] text-white uppercase font-medium text-6xl rotate-2 -left-2">
+        <div class="relative items-center w-fit my-20 flex overflow-x-hidden bg-[#582C72] text-white uppercase font-medium text-6xl rotate-2 -left-2">
             <div class="animate-marquee whitespace-nowrap items-center">
               <span>Massage Kerokan</span>
               <img src="/images/bunga-1.png" alt="Image 1" class="w-auto h-16 inline-block -mt-1"/>
@@ -81,5 +229,251 @@
           </div>
           
     </banner>
+    <promo class="text-[#7C3EA1] my-4">
+        <div class="flex flex-col px-8 py-4 justify-center items-center">
+            <h1 class="text-4xl">Ada promo terbatas, khusus untukmu</h1>
+            <h2 class="text-xl">Promo ini limited edition, jangan sampai kamu ketinggalan promo ini yah!</h2>
+        </div>
+        <div class="mx-auto w-1/2 max-w-1/2 justify-center items-center">
+            <div class="sliderAx h-auto rounded-lg">
+                <div id="slider-1" class="container mx-auto">
+                    <img src="/images/mawar/slide1.jpeg" alt="" class="w-full h-full rounded-md">
+                    <br>
+                </div>
+                <div id="slider-2" class="container mx-auto">
+                    <div class="bg-cover bg-top rounded-md h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+                        <p class="font-bold text-sm uppercase">Services</p>
+                        <p class="text-3xl font-bold">Hello world</p>
+                        <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+                        <a href="#" class="bg-white py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                    </div> <!-- container -->
+                    <br>
+                </div>
+                <div id="slider-3" class="container mx-auto">
+                    <div class="bg-cover bg-top rounded-md h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+                        <p class="font-bold text-sm uppercase">Services</p>
+                        <p class="text-3xl font-bold">Hello world</p>
+                        <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+                        <a href="#" class="bg-white py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                    </div> <!-- container -->
+                    <br>
+                </div>
+                <div id="slider-4" class="container mx-auto">
+                    <div class="bg-cover bg-top rounded-md h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+                        <p class="font-bold text-sm uppercase">Services</p>
+                        <p class="text-3xl font-bold">Hello world</p>
+                        <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+                        <a href="#" class="bg-white py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                    </div> <!-- container -->
+                    <br>
+                </div>
+                <div id="slider-5" class="container mx-auto">
+                    <div class="bg-cover bg-top rounded-md h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+                        <p class="font-bold text-sm uppercase">Services</p>
+                        <p class="text-3xl font-bold">Hello world</p>
+                        <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+                        <a href="#" class="bg-white py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                    </div> <!-- container -->
+                    <br>
+                </div>
+            </div>
+            <div class="flex px-8">
+                <div class="flex">
+                    <p class="font-semibold" id="angka">1</p>
+                    <p class="font-semibold">/5&nbsp;</p>
+                    <p class="px-1">|&nbsp;</p>
+                </div>
+                <div  class="flex justify-between w-32 py-3 rounded-full px-4 bg-[#693589]">
+                    <button id="sButton1" onclick="sliderButton1()" class="bg-[#AC85C4] rounded-full w-2 p-1 " ></button>
+                    <button id="sButton2" onclick="sliderButton2() " class="bg-[#AC85C4] rounded-full w-2 p-1"></button>
+                    <button id="sButton3" onclick="sliderButton3() " class="bg-[#AC85C4] rounded-full w-2 p-1"></button>
+                    <button id="sButton4" onclick="sliderButton4() " class="bg-[#AC85C4] rounded-full w-2 p-1"></button>
+                    <button id="sButton5" onclick="sliderButton5() " class="bg-[#AC85C4] rounded-full w-2 p-1"></button>
+                </div>
+            </div>
+        </div>
+    </promo>
+    <services>
+        <div class="w-2/3 max-w-2/3 justify-center items-center mx-auto mt-20">
+            <div class="container mx-8 my-4 text-[#7C3EA1] border-b-2 border-[#7C3EA1] text-md font-semibold">
+                OUR SERVICE
+            </div>
+            <div class="flex flex-wrap justify-between w-full text-[#7C3EA1] mx-8 my-4">
+                <h1 class="w-2/3 font-semibold text-4xl">Apa saja layanan yang kami sediakan?</h1>
+                <h2 class="w-1/3">Kami menyediakan berbagai layanan SPA & Massage untuk semua keinginan anda, didukung dengan terapis yang profesional dan berpengalaman paham akan layanan massage sehingga tubuh anda akan bugar kembali</h2>
+            </div>
+            <div class="flex flex-row">
+                <div class="container w-1/2">
+                    <div class="collapse px-8 mt-12 max-w-xl text-[#693589]">
+                        <input type="checkbox" class="peer" checked />
+                        <div
+                        class="collapse-title font-bold text-2xl border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        01. &nbsp;&nbsp;Massage Tradisional
+                        </div>
+                        <div
+                        class="collapse-content pl-16 border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        <p>Tubuh pegal anda akan hilang dengan pijat secara tradisional, kembali bugar dan berstamina dengan massage tradisional</p>
+                        </div>
+                    </div>
+                    <div class="collapse px-8 max-w-xl text-[#693589]">
+                        <input type="checkbox" class="peer" />
+                        <div
+                        class="collapse-title font-bold text-2xl border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        02. &nbsp;&nbsp;Massage Body Scrub
+                        </div>
+                        <div
+                        class="collapse-content pl-16 border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        <p>Tubuh pegal anda akan hilang dengan pijat secara tradisional, kembali bugar dan berstamina dengan massage tradisional</p>
+                        </div>
+                    </div>
+                    <div class="collapse px-8 max-w-xl text-[#693589]">
+                        <input type="checkbox" class="peer" />
+                        <div
+                        class="collapse-title font-bold text-2xl border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        03. &nbsp;&nbsp;Massage Reflexy
+                        </div>
+                        <div
+                        class="collapse-content pl-16 border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        <p>Tubuh pegal anda akan hilang dengan pijat secara tradisional, kembali bugar dan berstamina dengan massage tradisional</p>
+                        </div>
+                    </div>
+                    <div class="collapse px-8 max-w-xl text-[#693589]">
+                        <input type="checkbox" class="peer" />
+                        <div
+                        class="collapse-title font-bold text-2xl border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        04. &nbsp;&nbsp;Massage Kerokan
+                        </div>
+                        <div
+                        class="collapse-content pl-16 border-l-4 border-[#E0D1E8] peer-checked:border-l-4 peer-checked:border-[#693589]">
+                        <p>Tubuh pegal anda akan hilang dengan pijat secara tradisional, kembali bugar dan berstamina dengan massage tradisional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container w-1/2 mt-12 flex-grow">
+                    <div class="container h-full border-2">
+                        <div class="bg-cover bg-center rounded-md h-full text-white relative" style="background-image: url('images/mawar/services1.jpeg')">
+                            <a href="#" class="absolute bottom-0 right-0 mb-10 mr-10 bg-white py-4 px-8 text-[#582C72] font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800">
+                                Hubungi Sekarang
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </services>
+    <about>
+        <div class="w-2/3 max-w-2/3 justify-center items-center mx-auto mt-20">
+            <div class="container mx-8 my-4 text-[#7C3EA1] border-b-2 border-[#7C3EA1] text-md font-semibold">
+                ABOUT US
+            </div>
+            <div class="container mx-8 my-4 flex flex-col gap-8">
+                <div class="container w-full">
+                    <div class="flex flex-wrap justify-between">
+                      <div class="flex w-1/3 flex-wrap">
+                        <div class="w-full pb-1 md:pb-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about1.jpeg" />
+                        </div>
+                        <div class="w-1/3 pr-1 md:pr-2 pt-1 md:pt-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about2.jpeg" />
+                        </div>
+                        <div class="w-2/3 pl-1 md:pl-2 pt-1 md:pt-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about3.jpeg" />
+                        </div>
+                      </div>
+                      <div class="flex flex-col w-1/2 text-[#582C72]">
+                        <h1 class="font-semibold text-4xl">Kenapa harus kami, bukan mereka?</h1>
+                        <p class="text-sm py-4">Lelah seharian? Pijat panggilan 24 jam siap memanjakan Anda di rumah! Nikmati relaksasi dengan berbagai pilihan pijatan, dari tradisional hingga modern. Terapis profesional kami siap datang ke rumah, hotel, atau apartemen Anda. Harga terjangkau, pemesanan mudah.</p>
+                        <h2 class="text-lg uppercase border-b-2 w-fit border-[#7C3EA1]">hubungi sekarang <i class="fa-solid fa-arrow-up text-xl rotate-45"></i></h2>
+                        <br>
+                        <div class="flex flex-wrap">
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </about>
+    <article>
+        <div class="w-2/3 max-w-2/3 justify-center items-center mx-auto mt-20">
+            <div class="container mx-8 my-4 text-[#7C3EA1] border-b-2 border-[#7C3EA1] text-md font-semibold">
+                ABOUT US
+            </div>
+            <div class="container mx-8 my-4 flex flex-col gap-8">
+                <div class="container w-full">
+                    <div class="flex flex-wrap justify-between">
+                      <div class="flex w-1/3 flex-wrap">
+                        <div class="w-full pb-1 md:pb-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about1.jpeg" />
+                        </div>
+                        <div class="w-1/3 pr-1 md:pr-2 pt-1 md:pt-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about2.jpeg" />
+                        </div>
+                        <div class="w-2/3 pl-1 md:pl-2 pt-1 md:pt-2">
+                          <img
+                            alt="gallery"
+                            class="block h-full w-full rounded-lg object-cover object-center"
+                            src="/images/mawar/about3.jpeg" />
+                        </div>
+                      </div>
+                      <div class="flex flex-col w-1/2 text-[#582C72]">
+                        <h1 class="font-semibold text-4xl">Kenapa harus kami, bukan mereka?</h1>
+                        <p class="text-sm py-4">Lelah seharian? Pijat panggilan 24 jam siap memanjakan Anda di rumah! Nikmati relaksasi dengan berbagai pilihan pijatan, dari tradisional hingga modern. Terapis profesional kami siap datang ke rumah, hotel, atau apartemen Anda. Harga terjangkau, pemesanan mudah.</p>
+                        <h2 class="text-lg uppercase border-b-2 w-fit border-[#7C3EA1]">hubungi sekarang <i class="fa-solid fa-arrow-up text-xl rotate-45"></i></h2>
+                        <br>
+                        <div class="flex flex-wrap">
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                            <div class="w-1/2 flex flex-col pr-2 my-4">
+                                <h1 class="font-semibold text-sm">Terapis Professional</h1>
+                                <p class="text-xs">Tenaga Ahli yang sudah berpengalaman dalam massage, membuat layanan kami lebih memuaskan</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </article>
 </body>
 </html>
